@@ -2,8 +2,8 @@
 
 #include <stdio.h>
 
-int main() {
-    int arr[100],n;
+int main() 
+    {int arr[100],n;
     printf("enter number of elements in array : ");
     scanf("%d",&n);
     for (int i=0; i<n; i++)
@@ -14,5 +14,4 @@ int main() {
         {if(max < arr[j])
             {max = arr[j];}}
     printf("\nLargest Element is %d\n", max);
-    return 0;
-}
+    return 0;}
