@@ -1,44 +1,42 @@
 // Write a C program for calculating time complexity for multiply two Matrix
 
 #include <stdio.h>
+void multiplyMatrix(int mat1[][100], int mat2[][100], int result[][100], int size)
+    {for (int i = 0; i < size; i++)
+        {for (int j = 0; j < size; j++) 
+            {result[i][j] = 0;
+            for (int k = 0; k < size; k++) 
+                {result[i][j] += mat1[i][k] * mat2[k][j];}}}}
 
-#define N 3 // Size of the matrices (you can change it)
+void printMatrix(int mat[][100], int size)
+    {for (int i = 0; i < size; i++)
+        {for (int j = 0; j < size; j++) 
+            {printf("%d ", mat[i][j]);}
+        printf("\n");}}
 
-void multiplyMatrix(int mat1[][N], int mat2[][N], int result[][N]) {
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            result[i][j] = 0;
-            for (int k = 0; k < N; k++) {
-                result[i][j] += mat1[i][k] * mat2[k][j];
-            }
-        }
-    }
-}
+int main() 
+    {int mat1[100][100],mat2[100][100], result[100][100], size;
 
-void printMatrix(int mat[][N]) {
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            printf("%d ", mat[i][j]);
-        }
-        printf("\n");
-    }
-}
+    printf("Enter the size of the matrices: ");
+    scanf("%d", &size);
 
-int main() {
-    int mat1[N][N] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int mat2[N][N] = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
-    int result[N][N];
+    printf("\nEnter elements for Matrix 1:\n");
+    for (int i = 0; i < size; i++)
+        {for (int j = 0; j < size; j++)
+            {printf("Enter element mat1[%d][%d]: ", i, j);
+            scanf("%d", &mat1[i][j]);}}
 
-    multiplyMatrix(mat1, mat2, result);
+    printf("\nEnter elements for Matrix 2:\n");
+    for (int i = 0; i < size; i++)
+        {for (int j = 0; j < size; j++)
+            {printf("Enter element mat2[%d][%d]: ", i, j);
+            scanf("%d", &mat2[i][j]);}}
 
-    printf("Matrix 1:\n");
-    printMatrix(mat1);
-
+    multiplyMatrix(mat1, mat2, result, size);
+    printf("\nMatrix 1:\n");
+    printMatrix(mat1, size);
     printf("\nMatrix 2:\n");
-    printMatrix(mat2);
-
+    printMatrix(mat2, size);
     printf("\nResult Matrix:\n");
-    printMatrix(result);
-
-    return 0;
-}
+    printMatrix(result, size);
+    return 0;}
